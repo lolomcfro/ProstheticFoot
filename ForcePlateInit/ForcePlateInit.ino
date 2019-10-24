@@ -29,6 +29,7 @@ THIS PROCESS WILL ONLY BE DONE ONCE IN A DIFFERENT PROGRAM
   scale1.set_scale(calVal);
 
 //help me dad
+//Hep me too	
 
  scale1.tare(); //This sets the scales reading to 0 at the start of the program
 }
