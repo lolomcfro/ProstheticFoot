@@ -2,8 +2,8 @@
 #include <HX711.h>
 
 //Subject to change
-const int LOADCELL_DOUT_PIN = 2; 
-const int LOADCELL_SCK_PIN = 3; 
+const int LOADCELL_DOUT_PIN = 9; 
+const int LOADCELL_SCK_PIN = 8; 
 
 const int calVal = 0; //Get this value from testing with known weights
 
@@ -11,7 +11,7 @@ double scale_1Val;
 double scale_2Val;
 double gravity = 9.81;
 double mass;
-
+double force;
 HX711 scale1;
 HX711 scale2;
 
@@ -26,19 +26,21 @@ void setup() {
 5. Adjust the parameter in step 4 until you get an accurate reading.
 THIS PROCESS WILL ONLY BE DONE ONCE IN A DIFFERENT PROGRAM
 */
-  scale1.set_scale(calVal);
+  //scale1.set_scale(calVal);
 
 //help me dad
 //Hep me too	
 
- scale1.tare(); //This sets the scales reading to 0 at the start of the program
+ //scale1.tare(); //This sets the scales reading to 0 at the start of the program
+ Serial.begin(9600);
+ Serial.println("WUNNING");
 }
-double scale_1Val;
-double scale_2Val;
+
 void loop() {
   // put your main code here, to run repeatedly:
- scale_1Val = scale1.get_units(5);
- scale_2Val = scale2.get_units(5);
+ Serial.println("WUNNING");
+ scale_1Val = scale1.get_value(5);
+ scale_2Val = scale2.get_value(5);
 
  mass = (scale_1Val + scale_2Val)/2;
 
