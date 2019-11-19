@@ -50,7 +50,10 @@ void setup() {
 						// by the SCALE parameter (not set yet)
 
   scale.set_scale(2280.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
-  scale.tare();				        // reset the scale to 0
+  scale.tare();				
+  
+  scal2.set_scale(2280.f);                      // this value is obtained by calibrating the scale with known weights; see the README for details
+  scal2.tare();      // reset the scale to 0
 
   Serial.println("After setting up the scale:");
 
@@ -76,6 +79,6 @@ void loop() {
   Serial.println((scale.get_units(10)+scal2.get_units(10))/2, 1);
 
   scale.power_down();			        // put the ADC in sleep mode
-  delay(5000);
+  delay(500);
   scale.power_up();
 }
